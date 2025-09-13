@@ -3,12 +3,23 @@
 import { useState, useCallback } from "react";
 import { fetchRepos, fetchUser } from "../service/github";
 
+interface Repository {
+  id: number;
+  name: string;
+  html_url: string;
+  description: string | null;
+  stargazers_count: number;
+  forks_count: number;
+  open_issues_count: number;
+  language: string | null;
+}
+
 export const useGithub = () => {
   const [loading, setLoading] = useState(false);
   const [loadingMore, setLoadingMore] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [profileData, setProfileData] = useState(null);
-  const [repos, setRepos] = useState([]);
+  const [repos, setRepos] = useState<Repository[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [hasMore, setHasMore] = useState(false);
   const [currentUsername, setCurrentUsername] = useState("");
@@ -26,7 +37,7 @@ export const useGithub = () => {
       setRepos(repoData.repos);
       setHasMore(repoData.hasMore);
       setProfileData(userData);
-    } catch (error) {
+    } catch {
       setError("User not found or API limit exceeded");
       setProfileData(null);
       setRepos([]);
@@ -45,7 +56,7 @@ export const useGithub = () => {
       setRepos((prevRepos) => [...prevRepos, ...repoData.repos]);
       setHasMore(repoData.hasMore);
       setCurrentPage(nextPage);
-    } catch (error) {
+    } catch {
       setError("Failed to load more repositories");
     } finally {
       setLoadingMore(false);

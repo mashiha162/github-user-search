@@ -28,7 +28,7 @@ export default function Searchbar({ onSearch }: Props) {
       lastSearchedRef.current = trimmedValue;
       onSearch(trimmedValue);
     }
-  }, [debouncedValue]);
+  }, [debouncedValue, onSearch]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
@@ -40,7 +40,7 @@ export default function Searchbar({ onSearch }: Props) {
       lastSearchedRef.current = trimmedValue;
       onSearch(trimmedValue);
     }
-  }, [value]);
+  }, [value, onSearch]);
 
   const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {

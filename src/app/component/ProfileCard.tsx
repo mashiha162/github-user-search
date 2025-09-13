@@ -1,7 +1,20 @@
 import { Avatar, Card } from "antd";
 import React from "react";
 
-type Props = { profile: any };
+interface GitHubProfile {
+  login: string;
+  name: string | null;
+  avatar_url: string;
+  bio: string | null;
+  followers: number;
+  following: number;
+  public_repos: number;
+  location: string | null;
+  company: string | null;
+  blog: string | null;
+}
+
+type Props = { profile: GitHubProfile };
 
 export default function ProfileCard({ profile }: Props) {
   return (

@@ -2,8 +2,19 @@
 import React from "react";
 import { Card, Button, Spin } from "antd";
 
+interface Repository {
+  id: number;
+  name: string;
+  html_url: string;
+  description: string | null;
+  stargazers_count: number;
+  forks_count: number;
+  open_issues_count: number;
+  language: string | null;
+}
+
 type Props = {
-  repos: any[];
+  repos: Repository[];
   hasMore: boolean;
   loadingMore: boolean;
   onLoadMore: () => void;
