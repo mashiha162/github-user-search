@@ -36,12 +36,7 @@ export default function RepoList({
           <Card key={repo.id} className="repo-card" hoverable>
             <div className="repo-header">
               <h4 className="repo-name">
-                <a
-                  href={repo.html_url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="repo-link"
-                >
+                <a href={repo.html_url} target="_blank" className="repo-link">
                   {repo.name}
                 </a>
               </h4>
@@ -79,7 +74,7 @@ export default function RepoList({
             loading={loadingMore}
             className="load-more-btn"
           >
-            {loadingMore ? "Loading..." : "Load More Repositories"}
+            {loadingMore ? "Loading..." : "Load 5 More Repositories"}
           </Button>
         </div>
       )}

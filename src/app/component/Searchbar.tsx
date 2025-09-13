@@ -22,7 +22,7 @@ export default function Searchbar({ onSearch }: Props) {
     const trimmedValue = debouncedValue.trim();
     if (
       trimmedValue &&
-      trimmedValue.length > 2 &&
+      trimmedValue.length > 1 &&
       trimmedValue !== lastSearchedRef.current
     ) {
       lastSearchedRef.current = trimmedValue;
@@ -58,7 +58,7 @@ export default function Searchbar({ onSearch }: Props) {
     <div className="search-container">
       <Input
         value={value}
-        placeholder="Type GitHub username (auto-search after 3+ chars)"
+        placeholder="Type GitHub username "
         onChange={handleInputChange}
         onKeyPress={handleKeyPress}
         onClear={handleClear}
@@ -66,8 +66,8 @@ export default function Searchbar({ onSearch }: Props) {
         className="search-input"
         allowClear
       />
-      {value.length > 0 && value.length <= 2 && (
-        <div className="search-hint">Type at least 3 characters to search</div>
+      {value.length > 0 && value.length <= 1 && (
+        <div className="search-hint">Type at least 2 characters to search</div>
       )}
     </div>
   );

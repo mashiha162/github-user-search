@@ -85,7 +85,6 @@ body {
   }
 }
 
-/* Search Container */
 .search-container {
   display: flex;
   flex-direction: column;
@@ -114,7 +113,6 @@ body {
   }
 }
 
-/* Loading State */
 .loading-container {
   display: flex;
   flex-direction: column;
@@ -133,7 +131,6 @@ body {
   font-weight: 500;
 }
 
-/* Error State */
 .error-container {
   display: flex;
   justify-content: center;
@@ -147,7 +144,6 @@ body {
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1) !important;
 }
 
-/* Results Container */
 .results-container {
   display: flex;
   flex-direction: column;
@@ -155,7 +151,6 @@ body {
   align-items: center;
 }
 
-/* Profile Card */
 .profile-card {
   width: 100%;
   max-width: 600px;
@@ -283,7 +278,6 @@ body {
   font-size: 1.1rem;
 }
 
-/* Repositories Section */
 .repos-section {
   width: 100%;
   max-width: 1000px;
@@ -416,7 +410,6 @@ body {
   font-weight: 500;
 }
 
-/* Load More Button */
 .load-more-container {
   display: flex;
   justify-content: center;

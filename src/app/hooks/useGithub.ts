@@ -33,7 +33,7 @@ export const useGithub = () => {
 
     try {
       const userData = await fetchUser(username);
-      const repoData = await fetchRepos(username, 1, 10);
+      const repoData = await fetchRepos(username, 1, 5);
       setRepos(repoData.repos);
       setHasMore(repoData.hasMore);
       setProfileData(userData);
@@ -52,7 +52,7 @@ export const useGithub = () => {
     setLoadingMore(true);
     try {
       const nextPage = currentPage + 1;
-      const repoData = await fetchRepos(currentUsername, nextPage, 10);
+      const repoData = await fetchRepos(currentUsername, nextPage, 5);
       setRepos((prevRepos) => [...prevRepos, ...repoData.repos]);
       setHasMore(repoData.hasMore);
       setCurrentPage(nextPage);

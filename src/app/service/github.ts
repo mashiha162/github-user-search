@@ -21,10 +21,11 @@ export const fetchUser = async (username: string) => {
 export const fetchRepos = async (
   username: string,
   page: number = 1,
-  perPage: number = 10
+  perPage: number = 5
 ) => {
+  const fetchPerPage = Math.max(perPage * 2, 10);
   const { data } = await axios.get(
-    `${BASE_URL}/${username}/repos?page=${page}&per_page=${perPage}&sort=updated`
+    `${BASE_URL}/${username}/repos?page=${page}&per_page=${fetchPerPage}&sort=updated`
   );
 
   // Sort by stars and return with pagination info
@@ -32,8 +33,10 @@ export const fetchRepos = async (
     (a: GitHubRepo, b: GitHubRepo) => b.stargazers_count - a.stargazers_count
   );
 
+  const requestedRepos = sortedRepos.slice(0, perPage);
+
   return {
-    repos: sortedRepos,
-    hasMore: data.length === perPage, // If we got full page, there might be more
+    repos: requestedRepos,
+    hasMore: data.length === fetchPerPage,
   };
 };

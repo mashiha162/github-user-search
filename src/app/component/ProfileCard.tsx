@@ -63,7 +63,7 @@ export default function ProfileCard({ profile }: Props) {
         {profile.blog && (
           <div className="detail-item">
             <span className="detail-icon">🔗</span>
-            <a href={profile.blog} target="_blank" rel="noopener noreferrer">
+            <a href={profile.blog} target="_blank">
               {profile.blog}
             </a>
           </div>
